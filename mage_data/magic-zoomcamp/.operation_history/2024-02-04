@@ -1,3 +1,0 @@
-{"operation": "create", "resource": {"type": "pipeline", "uuid": "gcs_to_bigquery_copy"}, "timestamp": 1707053967, "user": null}
-{"operation": "create", "resource": {"type": "pipeline", "uuid": "load_to_gcp_copy"}, "timestamp": 1707054177, "user": null}
-{"operation": "create", "resource": {"type": "pipeline", "uuid": "floral_snow"}, "timestamp": 1707056858, "user": null}
