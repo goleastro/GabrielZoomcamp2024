@@ -53,7 +53,7 @@ def web_to_gcs(year, service):
                 'trip_type':float
             }
 
-    parse_dates = ['lpep_pickup_datetime','lpep_dropoff_datetime']
+    #parse_dates = ['lpep_pickup_datetime','lpep_dropoff_datetime']
 
     for i in range(12):
         
@@ -71,7 +71,8 @@ def web_to_gcs(year, service):
         print(f"Local: {file_name}")
 
         # read it back into a parquet file
-        df = pd.read_csv(file_name, compression='gzip',dtype=taxi_dtypes, parse_dates=parse_dates)
+        df = pd.read_csv(file_name, compression='gzip',dtype=taxi_dtypes#, parse_dates=parse_dates
+                         )
         file_name = file_name.replace('.csv.gz', '.parquet')
         df.to_parquet(file_name, engine='pyarrow')
         print(f"Parquet: {file_name}")
