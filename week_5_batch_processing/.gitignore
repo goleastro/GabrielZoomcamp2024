@@ -2,6 +2,7 @@ spark/jdk-11.0.2/
 spark/spark-3.3.2-bin-hadoop3/
 
 *.csv
+*.csv.gz
 *.parquet
 *.parquet.crc
 
