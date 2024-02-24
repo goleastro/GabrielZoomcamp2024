@@ -1,0 +1,11 @@
+StructType(
+    [
+        StructField('hvfhs_license_num', StringType(), True), 
+        StructField('dispatching_base_num', StringType(), True), 
+        StructField('pickup_datetime', StringType(), True), 
+        StructField('dropoff_datetime', StringType(), True), 
+        StructField('PULocationID', LongType(), True), 
+        StructField('DOLocationID', LongType(), True), 
+        StructField('SR_Flag', DoubleType(), True)
+        ]
+)
