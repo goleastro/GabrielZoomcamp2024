@@ -1,0 +1,42 @@
+
+#start master spark server : 8080
+./sbin/start-master.sh
+
+#start a worker in the spark server
+./sbin/start-worker.sh spark://codespaces-45ac75:7077
+
+./sbin/stop-worker.sh
+./sbin/stop-master.sh
+
+
+#convert notebook to python script
+jupyter nbconvert --to=script 06_1_spark_sql.ipynb
+
+python 06_1_spark_sql.py \
+    --input_green=data/pq/green/2020/*/ \
+    --input_yellow=data/pq/yellow/2020/*/ \
+    --output=data/report-2020
+
+URL="spark://codespaces-45ac75:7077"
+
+spark-submit \
+    --master="${URL}" \
+    06_1_spark_sql.py \
+        --input_green=data/pq/green/2021/*/ \
+        --input_yellow=data/pq/yellow/2021/*/ \
+        --output=data/report-2021
+
+gs://mage-zoomcamp-demo-go/code/06_1_spark_sql.py
+
+--input_green=gs://mage-zoomcamp-demo-go/pq/green/2021/*/ \
+--input_yellow=gs://mage-zoomcamp-demo-go/pq/yellow/2021/*/ \
+--output=gs://mage-zoomcamp-demo-go/report-2021
+
+gcloud dataproc jobs submit pyspark \
+    --cluster=week5-my-cluster-v2 \
+    --region=us-central1 \
+    gs://mage-zoomcamp-demo-go/code/06_1_spark_sql.py \
+    -- \
+        --input_green=gs://mage-zoomcamp-demo-go/pq/green/2021/*/ \
+        --input_yellow=gs://mage-zoomcamp-demo-go/pq/yellow/2021/*/ \
+        --output=gs://mage-zoomcamp-demo-go/report-2021

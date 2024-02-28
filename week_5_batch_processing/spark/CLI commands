@@ -4,11 +4,22 @@ export PATH="${JAVA_HOME}/bin:${PATH}"
 export SPARK_HOME="/workspaces/GabrielZoomcamp2024/week_5_batch_processing/spark/spark-3.3.2-bin-hadoop3"
 export PATH="${SPARK_HOME}/bin:${PATH}"
 
-val data = 1 to 10000
-val distData = sc.parallelize(data)
-distData.filter(_ < 10).collect()
+#val data = 1 to 10000
+#val distData = sc.parallelize(data)
+#distData.filter(_ < 10).collect()
 
 export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
 export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
 
 week_5_batch_processing/spark/spark-3.3.2-bin-hadoop3/python/lib/py4j-0.10.9.5-src.zip
+
+export GOOGLE_APPLICATION_CREDENTIALS="/workspaces/GabrielZoomcamp2024/week_2_mage_n_orchestration/terraform-demo-411911-c14680156a1e.json"
+echo $GOOGLE_APPLICATION_CREDENTIALS
+
+
+#follow google steps to install google cloud sdk: -- https://cloud.google.com/sdk/docs/install
+gcloud auth login
+gcloud config set project terraform-demo-411911
+
+pip install gsutil
+gsutil -m cp -r pq/ gs://mage-zoomcamp-demo-go/pq

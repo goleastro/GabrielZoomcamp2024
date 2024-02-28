@@ -8,3 +8,5 @@ spark/spark-3.3.2-bin-hadoop3/
 
 *_SUCCESS
 *_SUCCESS.crc
+
+*.jar
