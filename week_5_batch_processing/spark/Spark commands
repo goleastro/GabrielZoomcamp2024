@@ -40,3 +40,14 @@ gcloud dataproc jobs submit pyspark \
         --input_green=gs://mage-zoomcamp-demo-go/pq/green/2021/*/ \
         --input_yellow=gs://mage-zoomcamp-demo-go/pq/yellow/2021/*/ \
         --output=gs://mage-zoomcamp-demo-go/report-2021
+
+
+gcloud dataproc jobs submit pyspark \
+    --cluster=week5-my-cluster-v2 \
+    --region=us-central1 \
+    --jars=gs://spark-lib/bigquery/spark-bigquery-latest_2.12.jar \
+    gs://mage-zoomcamp-demo-go/code/06_1_spark_sql_big_query.py \
+    -- \
+        --input_green=gs://mage-zoomcamp-demo-go/pq/green/2021/*/ \
+        --input_yellow=gs://mage-zoomcamp-demo-go/pq/yellow/2021/*/ \
+        --output=trips_data_all.reports-2020
