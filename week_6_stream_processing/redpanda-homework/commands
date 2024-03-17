@@ -1,0 +1,43 @@
+rpk glossary found here: https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/06-streaming/python/redpanda_example
+
+# set alias for rpk
+alias rpk="docker exec -ti redpanda-1 rpk"
+
+rpk version
+
+# get info on cluster
+rpk cluster info
+
+# create topic_name with m partitions and n replication factor
+rpk topic create [topic_name] --partitions m --replicas n
+
+# get list of available topics, without extra details and with details
+rpk topic list
+rpk topic list --detailed
+
+# inspect topic config
+rpk topic describe [topic_name]
+
+# consume [topic_name]
+rpk topic consume [topic_name]
+
+# list the consumer groups in a Redpanda cluster
+rpk group list
+
+# get additional information about a consumer group, from above listed result
+rpk group describe my-group
+
+#to install virtual environments and install packages (run only once)
+python -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+
+# start python virtual environment, activate it, install requirements
+python3.7 -m venv venv-3.7
+source env/bin/activate
+pip install -r requirements.txt
+
+# start python virtual environment, activate it, install requirements
+virtualenv -p python3.7 venv
+source venv/bin/activate
+pip install -r requirements.txt
