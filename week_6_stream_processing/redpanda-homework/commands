@@ -1,6 +1,6 @@
 rpk glossary found here: https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/06-streaming/python/redpanda_example
 
-# set alias for rpk
+# set alias for rpk - this allows us to use the rpk CLI in our terminal.
 alias rpk="docker exec -ti redpanda-1 rpk"
 
 rpk version
@@ -41,3 +41,10 @@ pip install -r requirements.txt
 virtualenv -p python3.7 venv
 source venv/bin/activate
 pip install -r requirements.txt
+
+#I have Python 3.12.1, which is not compatible with kafka-python-2.0.2. 
+#Therefore, instead of running "pip install kafka-python", 
+#I resolved the issue by using "pip install git+https://github.com/dpkp/kafka-python.git". 
+#If you have already installed kafka-python, you need to run "pip uninstall kafka-python" 
+#After uninstalling run pip install kafka-python-ng 
+#(this version of kafka-python supports your python version 3.10)
